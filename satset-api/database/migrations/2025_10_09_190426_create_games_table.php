@@ -14,8 +14,11 @@ return new class extends Migration
         Schema::create('games', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('slug');
+            $table->string('slug')->unique();
+            $table->string('logo_path');
+            $table->string('cover');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
