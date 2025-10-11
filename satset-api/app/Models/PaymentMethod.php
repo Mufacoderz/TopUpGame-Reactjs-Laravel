@@ -14,5 +14,5 @@ class PaymentMethod extends Model
     protected $guarded = ['id'];
 
     //hidden
-    protected $hidden = ['id', 'created_id', 'updated_id', 'deleted_at'];
+    protected $hidden = ['id', 'created_id', 'updated_at', 'deleted_at'];
 }
