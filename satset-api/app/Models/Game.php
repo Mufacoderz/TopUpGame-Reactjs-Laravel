@@ -16,5 +16,6 @@ class Game extends Model
     protected $guarded = ['id'];
 
     //konfig field mana yg disembunyikan atau tamplikna
+    protected $hidden = ['id', 'created_id', 'updated_id', 'deleted_at'];
 
 }
