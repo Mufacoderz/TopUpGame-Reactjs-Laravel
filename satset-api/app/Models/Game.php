@@ -3,19 +3,26 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Game extends Model
 {
-    //menggnkan fitur soft delete
+    // menggunakan fitur soft delete
     use SoftDeletes;
 
-    //mngkonfig field mana yg boleh atau tk boleh diisi
-    #mass asignment => ada 2, fillabel yg boleh diisi, guarded tkboleh
+    // konfigurasi field mana yang boleh diisi / yang tidak boleh diisi
+    # mass assignment => fillable (field mana yang boleh diisi) , guarded (field mana yang tidak boleh diisi)
     // protected $fillable = ['name', 'slug', 'logo_path', 'cover_path'];
     protected $guarded = ['id'];
 
-    //konfig field mana yg disembunyikan atau tamplikna
-    protected $hidden = ['id', 'created_id', 'updated_id', 'deleted_at'];
+    // konfigurasi field mana yang disembunyikan ketika data ditampilkan => hidden
+    protected $hidden = ['id', 'created_at', 'updated_at', 'deleted_at'];
+
+    // relasi
+    public function products() : HasMany
+    {
+        return $this->hasMany(Product::class, 'game_slug', 'slug');
+    }
 
 }
