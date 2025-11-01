@@ -1,15 +1,16 @@
-
-import './App.css'
+import { Route, Routes } from "react-router-dom"
+import HomePage from "./pages/HomePage"
+import TransactionCheckPage from "./pages/TransactionCheckPage"
+import CheckoutPage from "./pages/CheckoutPage"
 
 function App() {
 
-
   return (
-    <>
-      <div>
-        <h1 className='mt-5 bg-blue-500 p-5 text-red-500'>hahah</h1>
-      </div>
-    </>
+    <Routes>
+      <Route path="/" element={<HomePage/>} />
+      <Route path="/checkout" element={<CheckoutPage/>} />
+      <Route path="/transaction-check" element={<TransactionCheckPage/>} />
+    </Routes>
   )
 }
 
